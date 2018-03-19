@@ -28,10 +28,22 @@ struct _Grafo_t {
 	vertice *vertice_grafo;
 };
 
+struct _vertice_t {
+	u32 nombre_real;
+	u32 etiqueta;
+	u32 grado;
+	vertice vecinos; 
+}
+
+/* typedef struct _vecinos_t {
+
+} valencia; */
+
 typedef struct lado_t {
    u32 vertice_u;
    u32 vertice_v;
 } lado;
+
 
 /* -------------------------------------------------------------------------------- */
 /* Funciones de Construcción/Destrucción del grafo */
