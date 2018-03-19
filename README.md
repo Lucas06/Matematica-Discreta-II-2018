@@ -1,0 +1,6 @@
+#PROYECTO DE MATEMATICA DISCRETA II - 2018
+
+###INTEGRANTES 
+· Lucas Astrada
+· Jenaro Calviño
+
