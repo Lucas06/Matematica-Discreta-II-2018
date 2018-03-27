@@ -25,15 +25,18 @@ struct _Grafo_t {
 	u32 n_vertices;
 	u32 m_aristas;
 	u32 color;
-	vertice *vertice_grafo;
+	vertice *vertice_array[n_vertices]; //debe ser array
 };
 
 struct _vertice_t {
 	u32 nombre_real;
 	u32 etiqueta;
 	u32 grado;
-	vertice vecinos; 
-}
+  u32 color;
+	vertice *vecinos[grado];
+};
+
+/* De esta forma guardamos solo una vez los vertices y los accedemos siempre con puntero */
 
 /* typedef struct _vecinos_t {
 
@@ -65,10 +68,10 @@ u32 NumeroDeColores(Grafo G); /* Retorna el número de colores del grafo G */
 /* -------------------------------------------------------------------------------- */
 /* Funciones para extraer información de los vértices */
 
-u32 NombreDelVertice(Grafo G, u32 i); /* Devuelve el nombre real del vértice número i en el orden guardado en ese momento en G */ 
+u32 NombreDelVertice(Grafo G, u32 i); /* Devuelve el nombre real del vértice número i en el orden guardado en ese momento en G */
 u32 ColorDelVertice(Grafo G, u32 i); /* Devuelve el color con el que está coloreado el vértice número i en el orden guardado en ese momento en G */
 u32 GradoDelVertice(Grafo G, u32 i); /* Devuelve el grado del vértice número i en el orden guardado en ese momento en G */
-u32 ColorJotaesimoVecino(Grafo G, u32 i,u32 j); /* evuelve el color del v ́ecino numero j del vértice número i en el orden guardado en ese momento en G */ 
+u32 ColorJotaesimoVecino(Grafo G, u32 i,u32 j); /* evuelve el color del v ́ecino numero j del vértice número i en el orden guardado en ese momento en G */
 u32 NombreJotaesimoVecino(Grafo G, u32 i,u32 j); /*Devuelve el nombre del v ́ecino numero j del vértice nu ́mero i en el orden guardado en ese momento en G */
 /* -------------------------------------------------------------------------------- */
 
@@ -84,10 +87,8 @@ int Bipartito(Grafo G); /* Si k es el número de componentes conexas de G, devue
 /* -------------------------------------------------------------------------------- */
 /* Funciones de ordenación */
 
-void OrdenNatural(Grafo G); /* Ordena los vértices en orden creciente de sus “nombres” reales */ 
-void OrdenWelshPowell(Grafo G); /* Ordena los vértices de G de acuerdo con el orden Welsh-Powell */ 
+void OrdenNatural(Grafo G); /* Ordena los vértices en orden creciente de sus “nombres” reales */
+void OrdenWelshPowell(Grafo G); /* Ordena los vértices de G de acuerdo con el orden Welsh-Powell */
 void AleatorizarVertices(Grafo G,u32 semilla); /* Esta función ordena pseudoaleatoriamente los vértices de G, usando alguna función pseudoaleatoria que dependa determinísticamente de semilla. */
-void ReordenManteniendoBloqueColores(Grafo G,u32 x); /* */ 
+void ReordenManteniendoBloqueColores(Grafo G,u32 x); /* */
 /* -------------------------------------------------------------------------------- */
-
-

@@ -32,11 +32,25 @@ u32 NumeroDeColores(Grafo G) {
 /* -------------------------------------------------------------------------------- */
 /* Funciones para extraer información de los vértices */
 
-u32 NombreDelVertice(Grafo G, u32 i);
-u32 ColorDelVertice(Grafo G, u32 i);
-u32 GradoDelVertice(Grafo G, u32 i);
-u32 ColorJotaesimoVecino(Grafo G, u32 i,u32 j);
-u32 NombreJotaesimoVecino(Grafo G, u32 i,u32 j);
+u32 NombreDelVertice(Grafo G, u32 i) {
+  return (G->vertice_array[i]->nombre_real);
+}
+
+u32 ColorDelVertice(Grafo G, u32 i) {
+  return (G->vertice_array[i]->color);
+}
+
+u32 GradoDelVertice(Grafo G, u32 i) {
+  return (G->vertice_array[i]->grado);
+}
+
+u32 ColorJotaesimoVecino(Grafo G, u32 i,u32 j) {
+  return (G->vertice_array[i]->vecinos[j]->color);
+}
+
+u32 NombreJotaesimoVecino(Grafo G, u32 i,u32 j) {
+  return (G->vertice_array[i]->vecinos[j]->nombre_real);
+}
 /* -------------------------------------------------------------------------------- */
 
 
@@ -56,5 +70,3 @@ void OrdenWelshPowell(Grafo G);
 void AleatorizarVertices(Grafo G,u32 semilla);
 void ReordenManteniendoBloqueColores(Grafo G,u32 x);
 /* -------------------------------------------------------------------------------- */
-
-
